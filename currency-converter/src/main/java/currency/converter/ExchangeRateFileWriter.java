@@ -7,9 +7,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
-public class ExchangeRateWriter {
+public class ExchangeRateFileWriter {
 
     public static void generateFile(String fileName) {
+
         // API endpoint for currency exchange rates
         String apiUrl = "https://v6.exchangerate-api.com/v6/50d92358a56f5a4c49a618ac/latest/USD";
 
@@ -30,7 +31,7 @@ public class ExchangeRateWriter {
             // Parse JSON response
             String exchangeRateData = response.toString();
 
-            // Write the response onto a txt file
+            // Write the response onto a local txt file
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
             writer.write(exchangeRateData);
             writer.close();
